@@ -21,7 +21,6 @@ public class MortgageApplicationDuoBank {
         LoginPage loginPage=new LoginPage();
         loginPage.login(ConfigReader.getProperty("username"),ConfigReader.getProperty("password"));
 
-        Assert.assertTrue(true);
 //        LoginStepDefs login = new LoginStepDefs();
 //        login.i_enter_as_a_username_and_as_password(ConfigReader.getProperty("username"),ConfigReader.getProperty("password"));
 
@@ -29,11 +28,8 @@ public class MortgageApplicationDuoBank {
     }
     @When("I click on mortgage application on the left menu")
     public void i_click_on_mortgage_application_on_the_left_menu() throws InterruptedException {
-        System.out.println("BEFORE!");
         Thread.sleep(4000);
-        System.out.println("I'M HERE!");
         MortgagePage mortgagePage =new MortgagePage();
-        System.out.println("CREATED MORTGAGE PAGE OBJECT! " + mortgagePage.ClickOnMortgageApplication);
         SeleniumUtils.jsClick(mortgagePage.ClickOnMortgageApplication);
     }
     @When("Fill out the Pre-approval Details with valid inputs")

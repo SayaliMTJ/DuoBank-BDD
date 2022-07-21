@@ -1,13 +1,12 @@
 @TBD_7 @TBD_8
 Feature:Mortgage Application - Employment and Income
-
+Background: Given URL Login - Loan Application
+  And REGISTERED user
 
 
 
 
   Scenario:Mortgage Application - Employment and Income - Invalid
-    Given URL Login - Loan Application
-    And REGISTERED user
     When I click on mortgage application on the left menu
     And Fill out the Pre-approval Details with valid inputs
     And Click next button on mortgage application
@@ -20,8 +19,6 @@ Feature:Mortgage Application - Employment and Income
     Then I should not be able to go to the next step on mortgage application
 
   Scenario:Mortgage Application - Employment and Income - Valid
-    Given URL Login - Loan Application
-    And REGISTERED user
     When I click on mortgage application on the left menu
     And Fill out the Pre-approval Details with valid inputs
     And Click next button on mortgage application
