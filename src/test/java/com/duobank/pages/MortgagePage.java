@@ -10,6 +10,11 @@ public class MortgagePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(id = "exampleInputEmail1")
-    public WebElement enterEmailAddress;
+    @FindBy(xpath ="//span[.='Mortgage Application']")
+    public WebElement ClickOnMortgageApplication;
+
+    @FindBy(id = "realtorinfo")
+    public WebElement EnterPreApprovalDetails;
 }
+
+

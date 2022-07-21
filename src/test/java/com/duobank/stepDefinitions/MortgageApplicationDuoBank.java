@@ -1,27 +1,46 @@
 package com.duobank.stepDefinitions;
 
+import com.duobank.pages.LoginPage;
+import com.duobank.pages.MortgagePage;
 import com.duobank.utilities.ConfigReader;
 import com.duobank.utilities.Driver;
+import com.duobank.utilities.SeleniumUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 public class MortgageApplicationDuoBank {
     @Given("URL Login - Loan Application")
-    public void url_login_loan_application() {
+    public void url_login_loan_application() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
     @Given("REGISTERED user")
-    public void registered_user() {
+    public void registered_user() throws InterruptedException {
+        LoginPage loginPage=new LoginPage();
+        loginPage.login(ConfigReader.getProperty("username"),ConfigReader.getProperty("password"));
+
+        Assert.assertTrue(true);
+//        LoginStepDefs login = new LoginStepDefs();
+//        login.i_enter_as_a_username_and_as_password(ConfigReader.getProperty("username"),ConfigReader.getProperty("password"));
+
 
     }
     @When("I click on mortgage application on the left menu")
-    public void i_click_on_mortgage_application_on_the_left_menu() {
-
+    public void i_click_on_mortgage_application_on_the_left_menu() throws InterruptedException {
+        System.out.println("BEFORE!");
+        Thread.sleep(4000);
+        System.out.println("I'M HERE!");
+        MortgagePage mortgagePage =new MortgagePage();
+        System.out.println("CREATED MORTGAGE PAGE OBJECT! " + mortgagePage.ClickOnMortgageApplication);
+        SeleniumUtils.jsClick(mortgagePage.ClickOnMortgageApplication);
     }
     @When("Fill out the Pre-approval Details with valid inputs")
-    public void fill_out_the_pre_approval_details_with_valid_inputs() {
-
+    public void fill_out_the_pre_approval_details_with_valid_inputs() throws InterruptedException {
+        Thread.sleep(2000);
+        MortgagePage mortgagePage =new MortgagePage();
+        mortgagePage.EnterPreApprovalDetails.sendKeys("Majd fisher"+ Keys.TAB +Keys.TAB + "1000000");
     }
     @When("Click next button on mortgage application")
     public void click_next_button_on_mortgage_application() {
