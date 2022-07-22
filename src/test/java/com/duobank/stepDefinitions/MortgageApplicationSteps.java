@@ -76,4 +76,27 @@ public class MortgageApplicationSteps {
     public void fill_out_the_expenses_details_with_invalid_inputs() {
         mortgagePage.fillOutMonthlyRentalPaymentInvalid();
     }
+
+    @When("Fill out the Employment and Income Details with valid inputs")
+    public void fill_out_the_employment_and_income_details_with_valid_inputs() {
+        MortgagePage.waitForEmploymentAndIncome();
+        mortgagePage.fillOutEmploymentAndIncomeInfo();
+    }
+
+    @When("Fill out the Credit Report Details with valid inputs")
+    public void fill_out_the_credit_report_details_with_valid_inputs() {
+        MortgagePage.waitForCreditReportYes();
+        mortgagePage.clickOrderCreditReportYesInput();
+    }
+
+    @Then("I must be able to go to the E-consent part on the mortgage application")
+    public void i_must_be_able_to_go_to_the_e_consent_part_on_the_mortgage_application() {
+        MortgagePage.waitForeConsentTitle();
+        Assert.assertTrue(mortgagePage.eConsentTitle.isDisplayed());
+    }
+
+    @When("Fill out the Credit Report Details with invalid inputs")
+    public void fill_out_the_credit_report_details_with_invalid_inputs() {
+        mortgagePage.creditReportInvalidInput();
+    }
 }
