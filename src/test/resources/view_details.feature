@@ -1,11 +1,9 @@
 @TBD-25
-Feature: View Details
+Feature: Application List - View Details
 
-  Scenario: Application List  Sort Entries Loan Amount - ASC
-    Given As a REGISTERED User
+  Scenario: Application List - Change Page
+    Given URL LOGIN
+    And REGISTERED user
     When I click on application list on the left menu
-    And  Click on view details
+    And Get borrower information and click on view details
     Then I must be able to see the matching application information as it is shown on the list
-
-
-

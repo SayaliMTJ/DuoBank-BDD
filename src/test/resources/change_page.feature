@@ -1,9 +1,9 @@
 @TBD-26
-Feature: Change Page
+Feature: Application List - Change Page
 
-
-  Scenario: Application List  Sort Entries Loan Amount - ASC
-    Given As a REGISTERED User
+  Scenario: Application List - Change Page
+    Given URL LOGIN
+    And REGISTERED user
     When I click on application list on the left menu
     And Click on Next to change the current page on right bottom
     Then I must be able to see application list repopulating
