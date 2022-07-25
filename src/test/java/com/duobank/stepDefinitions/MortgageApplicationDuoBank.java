@@ -47,7 +47,7 @@ public class MortgageApplicationDuoBank {
     public void click_next_button_on_mortgage_application() throws InterruptedException {
         MortgagePage mortgagePage =new MortgagePage();
         SeleniumUtils.jsClick(mortgagePage.ClickNext);
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
     }
     @When("Fill out the Personal Information Details with valid inputs")
     public void fill_out_the_personal_information_details_with_valid_inputs() throws InterruptedException {
@@ -99,7 +99,7 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     }
     @Then("I should not be able to go to the next step on mortgage application")
     public void i_should_not_be_able_to_go_to_the_next_step_on_mortgage_application() throws InterruptedException {
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         MortgagePage mortgagePage =new MortgagePage();
         Driver.getDriver().findElements((By) mortgagePage.requiredLabel).get(0).isDisplayed();
     }
@@ -117,9 +117,9 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     }
     @Then("I must be able to go to the summary part on the mortgage application")
     public void i_must_be_able_to_go_to_the_summary_part_on_the_mortgage_application() throws InterruptedException {
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         MortgagePage mortgagePage =new MortgagePage();
-        Assert.assertEquals("Save",mortgagePage.CheckSummaryTap.getText());
+        Assert.assertTrue(mortgagePage.CheckSummaryTap.isDisplayed());
 
     }
     @When("Fill out the Employment and Income Details with invalid inputs")
@@ -136,9 +136,9 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     }
     @Then("I must be able to go to the Credit Report part on the mortgage application")
     public void i_must_be_able_to_go_to_the_credit_report_part_on_the_mortgage_application() throws InterruptedException {
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         MortgagePage mortgagePage =new MortgagePage();
-        Assert.assertEquals("Order Credit Report",mortgagePage.CheckCreditReport.getText());
+        Assert.assertTrue(mortgagePage.CheckCreditReport.isDisplayed());
 
     }
     @When("Fill out the Personal Information Details with invalid inputs")
@@ -153,9 +153,9 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
         }
         @Then("I must be able to go to the Expenses part on the mortgage application")
         public void i_must_be_able_to_go_to_the_expenses_part_on_the_mortgage_application () throws InterruptedException {
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
             MortgagePage mortgagePage = new MortgagePage();
-Assert.assertEquals("Monthly Rental Payment ",mortgagePage.CheckExpenseReport.getText());
+Assert.assertTrue(mortgagePage.CheckExpenseReport.isDisplayed());
         }
 
 
