@@ -59,9 +59,10 @@ mortgagePage.PersonalInformationDetails.sendKeys("majd"+Keys.TAB+Keys.TAB+"fishe
 //Thread.sleep(3000);
     }
     @When("Fill out the Expenses Details with valid inputs")
-    public void fill_out_the_expenses_details_with_valid_inputs() {
+    public void fill_out_the_expenses_details_with_valid_inputs() throws InterruptedException {
         MortgagePage mortgagePage =new MortgagePage();
         Faker faker =new Faker();
+        Thread.sleep(2000);
         mortgagePage.ExpensesMonthlyRentPayment.sendKeys(faker.number().digits(4));
 
     }
@@ -99,9 +100,9 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     }
     @Then("I should not be able to go to the next step on mortgage application")
     public void i_should_not_be_able_to_go_to_the_next_step_on_mortgage_application() throws InterruptedException {
-//        Thread.sleep(3000);
         MortgagePage mortgagePage =new MortgagePage();
-        Driver.getDriver().findElements((By) mortgagePage.requiredLabel).get(0).isDisplayed();
+        Thread.sleep(3000);
+        Assert.assertTrue( mortgagePage.requiredLabel.isDisplayed());
     }
 
     @When("Fill out the E-consent Details with valid inputs")

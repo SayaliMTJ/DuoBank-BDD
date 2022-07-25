@@ -24,7 +24,7 @@ public class MortgagePage {
     @FindBy(id = "b_firstName")
     public WebElement PersonalInformationDetails;
 
-    @FindBy(id = "monthlyrentalpayment")
+    @FindBy(xpath = "//input[@id='monthlyrentalpayment']")
     public WebElement ExpensesMonthlyRentPayment;
 
     @FindBy(id = "employername1")
@@ -69,8 +69,8 @@ public class MortgagePage {
     @FindBy(id = "//label[.='Monthly Rental Payment ']")
     public WebElement CheckExpenseReport;
 
-    @FindBy(xpath = "//label[@class='danger']")
-    public List<WebElement> requiredLabel;
+    @FindBy(xpath = "//label[contains(@id,'error')]")
+    public WebElement requiredLabel;
 
     @FindBy(id = "creditreport2")
     public WebElement ClickNoCreditReport;
