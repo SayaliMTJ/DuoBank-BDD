@@ -103,6 +103,26 @@ public class MortgagePage {
     @FindBy(xpath = "//h4[.='eConsent']")
     public WebElement eConsentTitle;
 
+    //Econsent
+    @FindBy(id = "eConsentdeclarerFirstName")
+    public WebElement eConsentFirstNameInput;
+
+    @FindBy(id = "eConsentdeclarerLastName")
+    public WebElement eConsentLastNameInput;
+
+    @FindBy(id = "eConsentdeclarerEmail")
+    public WebElement eConsentEmailInput;
+
+    @FindBy(id = "agree")
+    public WebElement eConsentAgreeInput;
+
+    //Summary
+    @FindBy(xpath = "//a[@href='#finish']")
+    public WebElement finishButton;
+
+    @FindBy(xpath = "//div[.='Application Submiited Successfully']")
+    public WebElement submittedSuccessfullyAlert;
+
     public static void waitForRealtorInfoInput(){
         SeleniumUtils.waitForVisibility(By.id("realtorinfo"), 5);
     }
@@ -133,6 +153,14 @@ public class MortgagePage {
 
     public static void waitForeConsentTitle(){
         SeleniumUtils.waitForVisibility(By.xpath("//h4[.='eConsent']"), 5);
+    }
+
+    public static void waitForeConsentFirstNameInput(){
+        SeleniumUtils.waitForVisibility(By.id("eConsentdeclarerFirstName"), 5);
+    }
+
+    public static void waitForSubmittedSuccessfullyAlert(){
+        SeleniumUtils.waitForVisibility(By.xpath("//div[.='Application Submiited Successfully']"), 5);
     }
 
     public void fillOutPreApprovalInfo(){
@@ -191,6 +219,18 @@ public class MortgagePage {
         grossMonthlyIncomeInput.sendKeys(monthlyIncome);
     }
 
+    public void fillOutEConsentInfo(){
+        Faker faker = new Faker();
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().firstName();
+        String email = faker.internet().emailAddress();
+
+        eConsentFirstNameInput.sendKeys(firstName);
+        eConsentLastNameInput.sendKeys(lastName);
+        eConsentEmailInput.sendKeys(email);
+        clickAgreeOnEConsent();
+    }
+
     public void fillOutMonthlyRentalPayment(){
         expensesMonthlyRentalPaymentInput.sendKeys("3000");
     }
@@ -203,9 +243,19 @@ public class MortgagePage {
         nextButton.click();
     }
 
+    public void clickPrevButton(){
+        previousButton.click();
+    }
+
+    public void clickFinishButton(){
+        finishButton.click();
+    }
+
     public void clickOrderCreditReportYesInput(){
         SeleniumUtils.jsClick(orderCreditReportYesInput);
     }
+
+    public void clickAgreeOnEConsent() { SeleniumUtils.jsClick(eConsentAgreeInput); }
 
     public void creditReportInvalidInput(){
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();

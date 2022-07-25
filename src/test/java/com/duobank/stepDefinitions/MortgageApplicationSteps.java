@@ -99,4 +99,33 @@ public class MortgageApplicationSteps {
     public void fill_out_the_credit_report_details_with_invalid_inputs() {
         mortgagePage.creditReportInvalidInput();
     }
+
+    @When("Fill out the E-consent Details with valid inputs")
+    public void fill_out_the_e_consent_details_with_valid_inputs() {
+        MortgagePage.waitForeConsentFirstNameInput();
+        mortgagePage.fillOutEConsentInfo();
+    }
+    @When("Click save button on mortgage application")
+    public void click_save_button_on_mortgage_application() {
+        mortgagePage.clickFinishButton();
+    }
+    @Then("I must be able to save the mortgage application")
+    public void i_must_be_able_to_save_the_mortgage_application() {
+        MortgagePage.waitForSubmittedSuccessfullyAlert();
+        Assert.assertTrue(mortgagePage.submittedSuccessfullyAlert.isDisplayed());
+    }
+
+    @When("Do not click save button on mortgage application")
+    public void do_not_click_save_button_on_mortgage_application() {
+        mortgagePage.clickPrevButton();
+    }
+    @Then("I should not be able to save the mortgage application")
+    public void i_should_not_be_able_to_save_the_mortgage_application() {
+        try {
+            Assert.assertFalse(mortgagePage.submittedSuccessfullyAlert.isDisplayed());
+        }catch (Exception e){
+            Assert.assertTrue(true);
+        }
+
+    }
 }
