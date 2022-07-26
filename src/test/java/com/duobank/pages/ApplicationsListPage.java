@@ -58,9 +58,7 @@ public class ApplicationsListPage {
     @FindBy(xpath = "//div[@role='status']")
     public WebElement entriesMsg;
 
-
-
-    public boolean checkApplicationListSorted(int headerIndex, boolean asc){
+    public boolean checkApplicationListSortedString(int headerIndex, boolean asc){
         List<String> sortedList = new ArrayList<>();
 
         for (WebElement eachRow: tableRows) {
@@ -78,17 +76,7 @@ public class ApplicationsListPage {
         else{
             Collections.sort(checkList, Collections.reverseOrder());
         }
-        for (String s: sortedList)
 
-              {
-                  System.out.println(s);
-        }
-        System.out.println("****");
-        for (String s: checkList)
-
-        {
-            System.out.println(s);
-        }
         return sortedList.equals(checkList);
     }
 
