@@ -11,19 +11,19 @@ public class SignupPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(name = "'first_name'" )
+    @FindBy(name = "first_name" )
     public WebElement firstName;
 
-    @FindBy(name = "'last_name'" )
+    @FindBy(name = "last_name" )
     public WebElement lastName;
 
-    @FindBy(name = "'email'" )
+    @FindBy(name = "email" )
     public WebElement email;
 
-    @FindBy(name = "'password'")
+    @FindBy(name = "password")
     public WebElement password;
 
-    @FindBy(name = "'register'")
+    @FindBy(name = "register")
     public WebElement registerSignup;
 
 }

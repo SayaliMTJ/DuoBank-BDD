@@ -12,8 +12,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class SignupStepDef {
-
+public class SignupStepDefinitions {
     @Given("Signup Page")
     public void signup_page() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -29,10 +28,10 @@ public class SignupStepDef {
     public void enters_valid_inputs_on_to_the_form() {
         Faker faker = new Faker();
         SignupPage signupPage = new SignupPage();
-        signupPage.firstName.sendKeys(faker.name().firstName(),
-                faker.name().lastName(),
-                faker.internet().emailAddress(),
-                faker.internet().password());
+        signupPage.firstName.sendKeys(faker.name().firstName());
+        signupPage.lastName.sendKeys(faker.name().lastName());
+        signupPage.email.sendKeys(faker.internet().emailAddress());
+        signupPage.password.sendKeys(faker.internet().password());
     }
 
     @And("Click on Sign up button")
@@ -43,6 +42,6 @@ public class SignupStepDef {
 
     @Then("User should be able to sign up")
     public void user_should_be_able_to_sign_up() {
-        Assert.assertEquals("http://qa-duobank.us-east-2.elasticbeanstalk.com/index.php", Driver.getDriver().getCurrentUrl());
+        Assert.assertTrue(Driver.getDriver().getPageSource().contains("Registration Successfull"));
     }
 }
