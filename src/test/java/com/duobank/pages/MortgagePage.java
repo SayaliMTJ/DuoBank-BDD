@@ -69,8 +69,8 @@ public class MortgagePage {
     @FindBy(id = "//label[.='Monthly Rental Payment ']")
     public WebElement CheckExpenseReport;
 
-    @FindBy(xpath = "//label[contains(@id,'error')]")
-    public WebElement requiredLabel;
+    @FindBy(xpath = "//label[@class='danger']")
+    public List<WebElement> requiredLabel;
 
     @FindBy(id = "creditreport2")
     public WebElement ClickNoCreditReport;
