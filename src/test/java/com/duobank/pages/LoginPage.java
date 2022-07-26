@@ -13,8 +13,11 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(xpath = "//a@href='register.php']")
+    public WebElement signup;
+
     @FindBy(id = "exampleInputEmail1")
-public WebElement enterEmailAddress;
+    public WebElement enterEmailAddress;
 
     @FindBy(id = "exampleInputPassword1")
     public WebElement enterPassword;
