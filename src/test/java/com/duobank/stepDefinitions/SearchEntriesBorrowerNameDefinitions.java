@@ -21,10 +21,24 @@ public class SearchEntriesBorrowerNameDefinitions {
         listPage.searchBar.sendKeys("Majd Aslan");
     }
 
+    @When("Enter {string} on to search bar")
+    public void enter_on_to_search_bar(String string) {
+        ApplicationsListPage listPage = new  ApplicationsListPage();
+        listPage.applicationList.click();
+        listPage.searchBar.sendKeys(string);
+    }
+
+
     @Then("I must be able to see the application lists that have the borrower name as search bar input")
     public void i_must_be_able_to_see_the_application_lists_that_have_the_borrower_name_as_search_bar_input() {
         ApplicationsListPage listPage = new ApplicationsListPage();
         String expectedText = "Majd Aslan";
-        Assert.assertTrue(expectedText.contains(listPage.nameText.getText()));
+        Assert.assertTrue(listPage.nameText.getText().contains(expectedText));
+    }
+
+    @Then("I must be able to see the application lists that have the {string} as search bar input")
+    public void i_must_be_able_to_see_the_application_lists_that_have_the_as_search_bar_input(String string) {
+        ApplicationsListPage listPage = new ApplicationsListPage();
+        Assert.assertTrue((listPage.nameText.getText().contains(string)));
     }
 }
