@@ -1,5 +1,6 @@
 @TBD_11 @TBD_12
-Feature: Mortgage Application - E-consent -
+Feature: Mortgage Application - E-consent
+
 Background:
   Given URL Login - Loan Application
   And REGISTERED user
@@ -14,7 +15,6 @@ Background:
   And Click next button on mortgage application
   And Fill out the Credit Report Details with valid inputs
   And Click next button on mortgage application
-
 
   Scenario:Mortgage Application - E-consent - Invalid
     And Fill out the E-consent Details with invalid inputs

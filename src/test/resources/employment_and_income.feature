@@ -12,8 +12,6 @@ Background:
   And Fill out the Expenses Details with valid inputs
   And Click next button on mortgage application
 
-
-
   Scenario:Mortgage Application - Employment and Income - Invalid
     And Fill out the Employment and Income Details with invalid inputs
     And Click next button on mortgage application

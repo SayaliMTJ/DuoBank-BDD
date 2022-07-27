@@ -13,72 +13,69 @@ public class MortgagePage {
     }
 
     @FindBy(xpath ="//span[.='Mortgage Application']")
-    public WebElement ClickOnMortgageApplication;
+    public WebElement clickOnMortgageApplication;
 
     @FindBy(id = "realtorinfo")
-    public WebElement EnterPreApprovalDetails;
+    public WebElement enterPreApprovalDetails;
 
     @FindBy(xpath = "//a[.='Next']")
-    public WebElement ClickNext;
+    public WebElement clickNext;
 
     @FindBy(id = "b_firstName")
-    public WebElement PersonalInformationDetails;
+    public WebElement personalInformationDetails;
 
     @FindBy(xpath = "//input[@id='monthlyrentalpayment']")
-    public WebElement ExpensesMonthlyRentPayment;
+    public WebElement expensesMonthlyRentPayment;
 
     @FindBy(id = "employername1")
-    public WebElement EmploymentName;
+    public WebElement employmentName;
 
     @FindBy(id = "position1")
-    public WebElement EmploymentTapPosition;
+    public WebElement employmentTapPosition;
 
     @FindBy(id = "city")
-    public WebElement EmploymentTapCity;
+    public WebElement employmentTapCity;
 
     @FindBy(id = "state1")
-    public WebElement EmploymentTapState;
+    public WebElement employmentTapState;
 
     @FindBy(id = "start_date1")
-    public WebElement DateEmploymentTapStartDate;
+    public WebElement dateEmploymentTapStartDate;
 
     @FindBy(id = "grossmonthlyincome")
-    public WebElement DateEmploymentTapGrossMonthlyIncome;
+    public WebElement dateEmploymentTapGrossMonthlyIncome;
 
     @FindBy(id = "eConsentdeclarerFirstName")
-    public WebElement EConsentFirstName;
+    public WebElement eConsentFirstName;
 
     @FindBy(id = "eConsentdeclarerLastName")
-    public WebElement EConsentLastName;
+    public WebElement eConsentLastName;
 
     @FindBy(id = "eConsentdeclarerEmail")
-    public WebElement EConsentEmail;
+    public WebElement eConsentEmail;
 
     @FindBy(id = "agree")
-    public WebElement EConsentAgreeButton;
+    public WebElement eConsentAgreeButton;
 
     @FindBy(id = "dontagree")
-    public WebElement EConsentDontAgreeButton;
+    public WebElement eConsentDontAgreeButton;
 
     @FindBy(xpath = "//a[.='Save']")
-    public WebElement CheckSummaryTap;
+    public WebElement checkSummaryTap;
 
     @FindBy(xpath = "//label[.='Order Credit Report']")
-    public WebElement CheckCreditReport;
+    public WebElement checkCreditReport;
 
     @FindBy(xpath = "//label[.='Monthly Rental Payment ']")
-    public WebElement CheckExpenseReport;
+    public WebElement checkExpenseReport;
 
     @FindBy(xpath = "//label[@class='danger']")
     public List<WebElement> requiredLabel;
 
     @FindBy(id = "creditreport2")
-    public WebElement ClickNoCreditReport;
+    public WebElement clickNoCreditReport;
 
     @FindBy(xpath = "//a[@href='#previous']")
     public WebElement previousButton;
 
-
 }
-
-
