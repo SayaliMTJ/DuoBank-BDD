@@ -67,11 +67,7 @@ public class MortgageApplicationSteps {
         MortgagePage.waitForBorrowerFirstNameInput();
         mortgagePage.fillOutPersonalInfo();
     }
-    @When("Fill out the Expenses Details with valid inputs")
-    public void fill_out_the_expenses_details_with_valid_inputs() {
-        MortgagePage.waitForExpensesMonthlyRentalPaymentInput();
-        mortgagePage.fillOutMonthlyRentalPayment();
-    }
+
     @Then("I must be able to go to the Employment and Income part on the mortgage application")
     public void i_must_be_able_to_go_to_the_employment_and_income_part_on_the_mortgage_application() {
         MortgagePage.waitForBorrowerEmploymentInformationTitle();
