@@ -28,7 +28,7 @@ public class DashboardPage {
         mortgageApplicationButton.click();
     }
 
-}
+
 
     public void clickApplicationListButton(){
         applicationListButton.click();

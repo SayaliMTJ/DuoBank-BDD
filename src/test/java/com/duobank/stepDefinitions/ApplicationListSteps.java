@@ -18,15 +18,6 @@ public class ApplicationListSteps {
     String borrowerFirstName = "";
     int borrowerAmount;
 
-    @Given("URL LOGIN")
-    public void url_login() {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
-    }
-    @Given("REGISTERED user")
-    public void registered_user() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(ConfigReader.getProperty("username"), ConfigReader.getProperty("password"));
-    }
     @When("I click on application list on the left menu")
     public void i_click_on_application_list_on_the_left_menu() {
         DashboardPage.waitForMortgageApplicationButton();
