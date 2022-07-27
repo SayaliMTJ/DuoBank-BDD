@@ -12,8 +12,13 @@ public class DashboardPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
     @FindBy(xpath = "//a[@href='mortagage.php']")
     public WebElement mortgageApplicationButton;
+
+    @FindBy(xpath = "//a[@href='applications.php']")
+    public WebElement applicationListButton;
+
 
     public static void waitForMortgageApplicationButton(){
         SeleniumUtils.waitForVisibility(By.xpath("//a[@href='mortagage.php']"), 5);
@@ -21,6 +26,12 @@ public class DashboardPage {
 
     public void clickMortgageApplicationButton(){
         mortgageApplicationButton.click();
+    }
+
+}
+
+    public void clickApplicationListButton(){
+        applicationListButton.click();
     }
 
 }
