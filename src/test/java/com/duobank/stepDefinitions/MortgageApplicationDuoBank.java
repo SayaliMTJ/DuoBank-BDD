@@ -47,7 +47,6 @@ public class MortgageApplicationDuoBank {
     public void click_next_button_on_mortgage_application() throws InterruptedException {
         MortgagePage mortgagePage =new MortgagePage();
         SeleniumUtils.jsClick(mortgagePage.ClickNext);
-//        Thread.sleep(3000);
     }
     @When("Fill out the Personal Information Details with valid inputs")
     public void fill_out_the_personal_information_details_with_valid_inputs() throws InterruptedException {
@@ -101,7 +100,13 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     @Then("I should not be able to go to the next step on mortgage application")
     public void i_should_not_be_able_to_go_to_the_next_step_on_mortgage_application() throws InterruptedException {
         MortgagePage mortgagePage =new MortgagePage();
-        Assert.assertTrue(mortgagePage.requiredLabel.get(mortgagePage.requiredLabel.size() - 1).isDisplayed());
+SeleniumUtils.waitFor(4);
+        if(mortgagePage.requiredLabel.size() > 1){
+            Assert.assertTrue(mortgagePage.requiredLabel.get(mortgagePage.requiredLabel.size() - 1).isDisplayed());
+        }
+        else{
+            Assert.assertTrue(mortgagePage.previousButton.isDisplayed());
+        }
 
     }
 
@@ -118,7 +123,8 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     }
     @Then("I must be able to go to the summary part on the mortgage application")
     public void i_must_be_able_to_go_to_the_summary_part_on_the_mortgage_application() throws InterruptedException {
-//        Thread.sleep(3000);
+
+        SeleniumUtils.waitForVisibility(By.xpath("//a[.='Save']"),4);
         MortgagePage mortgagePage =new MortgagePage();
         Assert.assertTrue(mortgagePage.CheckSummaryTap.isDisplayed());
 
@@ -138,6 +144,7 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     @Then("I must be able to go to the Credit Report part on the mortgage application")
     public void i_must_be_able_to_go_to_the_credit_report_part_on_the_mortgage_application() throws InterruptedException {
 //        Thread.sleep(3000);
+        SeleniumUtils.waitForVisibility(By.xpath("//label[.='Order Credit Report']"),3);
         MortgagePage mortgagePage =new MortgagePage();
         Assert.assertTrue(mortgagePage.CheckCreditReport.isDisplayed());
 
@@ -156,6 +163,7 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
         public void i_must_be_able_to_go_to_the_expenses_part_on_the_mortgage_application () throws InterruptedException {
 //        Thread.sleep(3000);
             MortgagePage mortgagePage = new MortgagePage();
+            SeleniumUtils.waitForVisibility(mortgagePage.CheckExpenseReport,3);
 Assert.assertTrue(mortgagePage.CheckExpenseReport.isDisplayed());
         }
 

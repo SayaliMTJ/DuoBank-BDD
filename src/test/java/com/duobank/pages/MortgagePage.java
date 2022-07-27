@@ -60,13 +60,13 @@ public class MortgagePage {
     @FindBy(id = "dontagree")
     public WebElement EConsentDontAgreeButton;
 
-    @FindBy(id = "(//a[.='Save']")
+    @FindBy(xpath = "//a[.='Save']")
     public WebElement CheckSummaryTap;
 
-    @FindBy(id = "//label[.='Order Credit Report']")
+    @FindBy(xpath = "//label[.='Order Credit Report']")
     public WebElement CheckCreditReport;
 
-    @FindBy(id = "//label[.='Monthly Rental Payment ']")
+    @FindBy(xpath = "//label[.='Monthly Rental Payment ']")
     public WebElement CheckExpenseReport;
 
     @FindBy(xpath = "//label[@class='danger']")
@@ -74,6 +74,9 @@ public class MortgagePage {
 
     @FindBy(id = "creditreport2")
     public WebElement ClickNoCreditReport;
+
+    @FindBy(xpath = "//a[@href='#previous']")
+    public WebElement previousButton;
 
 
 }
