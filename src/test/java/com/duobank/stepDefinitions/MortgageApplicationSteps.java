@@ -53,7 +53,13 @@ public class MortgageApplicationSteps {
     }
     @Then("I should not be able to go to the next step on mortgage application")
     public void i_should_not_be_able_to_go_to_the_next_step_on_mortgage_application() {
-        Assert.assertTrue(mortgagePage.requiredLabel.get(mortgagePage.requiredLabel.size() - 1).isDisplayed());
+        if(mortgagePage.requiredLabel.size() > 1){
+            Assert.assertTrue(mortgagePage.requiredLabel.get(mortgagePage.requiredLabel.size() - 1).isDisplayed());
+        }
+        else{
+            Assert.assertTrue(mortgagePage.previousButton.isDisplayed());
+        }
+
     }
 
     @When("Fill out the Personal Information Details with valid inputs")
