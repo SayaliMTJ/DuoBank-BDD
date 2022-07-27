@@ -101,8 +101,8 @@ SeleniumUtils.jsClick(mortgagePage.ClickNoCreditReport);
     @Then("I should not be able to go to the next step on mortgage application")
     public void i_should_not_be_able_to_go_to_the_next_step_on_mortgage_application() throws InterruptedException {
         MortgagePage mortgagePage =new MortgagePage();
-        Thread.sleep(3000);
-        Assert.assertTrue( mortgagePage.requiredLabel.isDisplayed());
+        Assert.assertTrue(mortgagePage.requiredLabel.get(mortgagePage.requiredLabel.size() - 1).isDisplayed());
+
     }
 
     @When("Fill out the E-consent Details with valid inputs")
