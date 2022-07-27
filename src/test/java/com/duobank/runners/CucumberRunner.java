@@ -12,10 +12,17 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         plugin = {
                 "pretty",
-                "html:target/built-in-report/cucumber-html-report.html"
+                "html:target/built-in-report/cucumber-html-report.html",
+
         }
 //        ,dryRun = true // used for quickly generating step definition snippets without running the scenarios
 )
 public class CucumberRunner {
 
+
+
+
 }
+
+}
+
