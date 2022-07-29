@@ -1,6 +1,5 @@
 @TBD-27
 Feature: User can Sort Entries Action
-
   Scenario: Sort Entries - Action
     Given application list page
     And REGISTERED user
