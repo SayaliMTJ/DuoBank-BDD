@@ -50,6 +50,13 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
             <version>7.4.1</version>
+
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.23.1</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -63,7 +70,12 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>**/*CucumberRunner.java</include>
+                        <include>**/*FailedScenariosRunner.java</include>
+                        <!--                        <include>${className}</include>-->
+
                     </includes>
+                    <parallel>methods</parallel>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
             </plugin>
             <plugin>
@@ -78,7 +90,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>Duotify</projectName>
+                            <projectName>Duobank</projectName>
 
                             <!-- output directory for the generated report -->
                             <outputDirectory>${project.build.directory}/pretty-report</outputDirectory>

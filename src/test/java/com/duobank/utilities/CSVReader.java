@@ -17,31 +17,17 @@ public class CSVReader {
      */
 
     public static  List<List<String>>  readFromCSV(String str) throws IOException {
-
         List<List<String>> result = new ArrayList<>();
-
             BufferedReader br = new BufferedReader(new FileReader(str));
-
             String strConv;
-
             while((strConv=br.readLine()) !=null){
                 String[] eachrow = strConv.split(",");
                 List<String> strings = Arrays.asList(eachrow);
                 result.add(strings);
             }
 
-
-
-
-
-
-//
-
         return result;
 
 
     }
-
-
-
 }
