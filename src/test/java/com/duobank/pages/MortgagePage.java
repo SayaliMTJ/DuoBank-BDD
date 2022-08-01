@@ -185,6 +185,24 @@ public class MortgagePage {
         downPaymentAmountInput.sendKeys(""+downPaymentAmountInvalid);
     }
 
+    public void fillOutPreApprovalInfo(String real_info, String purchase, String down_amount, String down_percentage){
+        realtorInfoInput.sendKeys(real_info);
+        estPurchasePriceInput.sendKeys(purchase);
+        downPaymentAmountInput.sendKeys(down_amount);
+        dowPaymentPercentageAmountInput.sendKeys(down_percentage);
+        clickNextButton();
+    }
+
+    public void fillOutPreApprovalInfoInvalidPercentage(String real_info1, String purchase1, String down_percentage1, String down_amount1){
+        realtorInfoInput.sendKeys(real_info1);
+        estPurchasePriceInput.sendKeys(purchase1);
+        dowPaymentPercentageAmountInput.sendKeys(down_percentage1);
+        downPaymentAmountInput.sendKeys(down_amount1);
+        clickNextButton();
+    }
+
+
+
     public void fillOutPersonalInfo(){
         Faker faker = new Faker();
         String firstName = faker.name().firstName();
@@ -234,11 +252,13 @@ public class MortgagePage {
     public void fillOutMonthlyRentalPayment(){
         expensesMonthlyRentalPaymentInput.sendKeys("3000");
     }
+    public void sendKeysMonthlyRentalPayment(String str){
+        expensesMonthlyRentalPaymentInput.sendKeys(str);
+    }
 
     public void fillOutMonthlyRentalPaymentInvalid(){
         expensesMonthlyRentalPaymentInput.sendKeys("asdfasdf");
     }
-
     public void clickNextButton(){
         nextButton.click();
     }

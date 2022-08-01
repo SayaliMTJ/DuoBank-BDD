@@ -44,12 +44,42 @@ public class MortgageApplicationSteps {
         MortgagePage.waitForPersonalInformationTitle();
         Assert.assertTrue(mortgagePage.personalInformationTitle.isDisplayed());
     }
-
     @When("Fill out the Pre-approval Details with invalid inputs")
     public void fill_out_the_pre_approval_details_with_invalid_inputs() {
         MortgagePage.waitForRealtorInfoInput();
         mortgagePage = new MortgagePage();
         mortgagePage.fillOutPreApprovalInfoInvalid();
+    }
+
+    // TBD-32
+    @When("I enter valid {string} as realtor info, {string} as purchase, {string} as down payment amount, {string} as down payment percentage")
+    public void iEnterValidRealtorInfoPurchaseDownPaymentAmountDownPaymentPercentage(String arg0, String arg1, String arg2, String arg3) {
+
+        MortgagePage.waitForRealtorInfoInput();
+        mortgagePage = new MortgagePage();
+        mortgagePage.fillOutPreApprovalInfo(arg0,arg1,arg2,arg3);
+    }
+
+    @When("I enter invalid {string} as realtor info, {string} as purchase, {string} as down payment amount, {string} as down payment percentage")
+    public void iEnterInvalidRealtorInfoPurchaseDownPaymentAmountDownPaymentPercentage(String arg4, String arg5, String arg6, String arg7) {
+
+
+        MortgagePage.waitForRealtorInfoInput();
+        mortgagePage = new MortgagePage();
+        mortgagePage.fillOutPreApprovalInfo(arg4,arg5,arg6,arg7);
+    }
+
+    @When("I enter valid {string} as realtor info, {string} as purchase, {string} as down payment percentage, {string} as invalid down payment amount")
+    public void iEnterValidRealtorInfoPurchaseDownPaymentPercentageAsInvalidDownPaymentAmount(String arg8, String arg9, String arg10, String arg11) {
+
+        MortgagePage.waitForRealtorInfoInput();
+        mortgagePage = new MortgagePage();
+        mortgagePage.fillOutPreApprovalInfoInvalidPercentage(arg8,arg9,arg10,arg11);
+    }
+
+    @Then("I should not be able to navigate to the Personal Information tap")
+    public void iShouldNotBeAbleToNavigateToThePersonalInformationTap() {
+        Assert.assertFalse(mortgagePage.personalInformationTitle.isDisplayed());
     }
     @Then("I should not be able to go to the next step on mortgage application")
     public void i_should_not_be_able_to_go_to_the_next_step_on_mortgage_application() {
@@ -77,6 +107,31 @@ public class MortgageApplicationSteps {
     @When("Fill out the Expenses Details with invalid inputs")
     public void fill_out_the_expenses_details_with_invalid_inputs() {
         mortgagePage.fillOutMonthlyRentalPaymentInvalid();
+    }
+    // TB-37
+    @When("I enter {string} as a Rental Payment")
+    public void i_enter_as_a_rental_payment(String string) {
+        MortgagePage.waitForExpensesMonthlyRentalPaymentInput();
+        mortgagePage.sendKeysMonthlyRentalPayment(string);
+        mortgagePage.clickNextButton();
+    }
+
+    @Then("I must be able to navigate to the Employment and income tap")
+    public void i_must_be_able_to_navigate_to_the_employment_and_income_tap() {
+        MortgagePage.waitForBorrowerEmploymentInformationTitle();
+        Assert.assertTrue(mortgagePage.borrowerEmploymentInformationTitle.isDisplayed());
+    }
+
+    @When("I enter invalid {string} as an invalid Rental Payment")
+    public void i_enter_invalid_as_an_invalid_rental_payment(String string2) {
+        MortgagePage.waitForExpensesMonthlyRentalPaymentInput();
+        mortgagePage.sendKeysMonthlyRentalPayment(string2);
+        mortgagePage.clickNextButton();
+    }
+
+    @Then("I should not be able to navigate to the Employment and income tap")
+    public void i_should_not_be_able_to_navigate_to_the_employment_and_income_tap() {
+        Assert.assertFalse(mortgagePage.borrowerEmploymentInformationTitle.isDisplayed());
     }
 
     @When("Fill out the Employment and Income Details with valid inputs")

@@ -1,4 +1,4 @@
-@TBD-5 @TBD-6
+@TBD-37
 Feature: Mortgage Application - Expenses
 
   Background:
@@ -10,12 +10,24 @@ Feature: Mortgage Application - Expenses
     And Fill out the Personal Information Details with valid inputs
     And Click next button on mortgage application
 
-  Scenario: Mortgage Application - Expenses - Valid
-    And Fill out the Expenses Details with valid inputs
-    And Click next button on mortgage application
-    Then I must be able to go to the Employment and Income part on the mortgage application
+  Scenario Outline: Mortgage Application - Expenses - Valid
+    When I enter "<MONTHLY RENTAL PAYMENT>" as a Rental Payment
+    Then I must be able to navigate to the Employment and income tap
 
-  Scenario: Mortgage Application - Expenses - Invalid
-    And Fill out the Expenses Details with invalid inputs
-    And Click next button on mortgage application
-    Then I should not be able to go to the next step on mortgage application
+    Examples: valid monthly rental payment
+      |MONTHLY RENTAL PAYMENT|
+      |150000                |
+      |1                     |
+      |120                   |
+
+
+
+  Scenario Outline: Mortgage Application - Expenses - InValid
+    When I enter invalid "<MONTHLY RENTAL PAYMENT>" as an invalid Rental Payment
+    Then I should not be able to navigate to the Employment and income tap
+
+    Examples: invalid monthly rental payment
+      |MONTHLY RENTAL PAYMENT|
+      |helloworld            |
+      |4jhbiufh              |
+      |dhgvd0                |
